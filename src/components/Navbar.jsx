@@ -11,7 +11,6 @@ import { Autocomplete, Badge, TextField } from '@mui/material';
 import { PATH } from '../hooks/usePath';
 import { Context } from '../context/Context';
 import SearchIcon from '@mui/icons-material/Search';
-
 const navItems = [
 	{
 		id: 1,
@@ -31,7 +30,6 @@ const navItems = [
 		to: PATH.upcoming
 	},
 ];
-
 function Navbar() {
 	const { likedList } = React.useContext(Context)
 	const { savedList } = React.useContext(Context)
@@ -61,7 +59,4 @@ function Navbar() {
 		</Box>
 	)
 }
-
-
-
 export default Navbar;

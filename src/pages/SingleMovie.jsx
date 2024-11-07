@@ -4,32 +4,27 @@ import { API_KEY, IMG_URL } from '../hooks/useEnv';
 import { useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 import YouTube from 'react-youtube';
-
 function SingleMovie() {
 	const { id } = useParams()
 	const [changeImg, setChangeImg] = useState(false)
 	const [movieInfo, setMovieInfo] = useState([])
 	const [actors, setActors] = useState([])
 	const [videos, setVideos] = useState([])
-
 	useEffect(() => {
 		useAxios().get(`/${id}?api_key=${API_KEY}`).then(res => {
 			setMovieInfo(res.data)
 		})
 	}, [])
-
 	useEffect(() => {
 		useAxios().get(`/${id}/credits?api_key=${API_KEY}`).then(res => {
 			setActors(res.data.cast);
 		})
 	}, [])
-
 	useEffect(() => {
 		useAxios().get(`/${id}/videos?api_key=${API_KEY}`).then(res => {
 			setVideos(res.data.results.splice(0, 5));
 		})
 	}, [])
-
 	return (
 		<div className='flex justify-between p-3'>
 			<div className="w-[19%] rounded-[15px] space-y-5 p-3 border-[2px] border-white h-[83vh] overflow-y-auto">
@@ -59,5 +54,4 @@ function SingleMovie() {
 		</div>
 	)
 }
-
 export default SingleMovie

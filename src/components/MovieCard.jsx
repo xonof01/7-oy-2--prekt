@@ -13,7 +13,6 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { Context } from '../context/Context';
 import { useNavigate } from 'react-router-dom';
 
-
 export default function MovieCard({ item }) {
 	const navigate = useNavigate()
 	const { likedList, setLikedList } = React.useContext(Context)
@@ -28,7 +27,6 @@ export default function MovieCard({ item }) {
 			setLikedList([...likedList])
 		}
 	}
-
 	function handleSavedBtnClick() {
 		const saveData = savedList.findIndex(value => value.id == item.id)
 		if (saveData == -1) {
@@ -38,7 +36,6 @@ export default function MovieCard({ item }) {
 			setSavedList([...savedList])
 		}
 	}
-
 	return (
 		<Card className='!bg-[#ffffff3d] cursor-pointer text-white border-[1.5px] border-white !rounded-[15px]' sx={{ maxWidth: 345 }}>
 			<CardHeader

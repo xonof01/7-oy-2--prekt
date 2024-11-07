@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useAxios } from '../hooks/useAxios'
 import MovieCard from './MovieCard'
 import { Pagination } from '@mui/material'
-
 function MoviePage({URL}) {
 	const [data, setData] = useState([])
 	const [totalPage, setTotalPage] = useState(1)
@@ -18,14 +17,10 @@ function MoviePage({URL}) {
 			setTotalPage(res.data.total_pages)
 		})
 	}, [page])
-
-	// pagination start 
 	function handlePaginationChange(e, count){
 		setTimeout(() => window.scrollTo(0, 0), 500)
 		setPage(count)
 	}
-	// pagination end
-
 	return (
 		<>
 			<div className='flex justify-between flex-wrap gap-[30px] p-[25px]'>
@@ -37,5 +32,4 @@ function MoviePage({URL}) {
 		</>
 	)
 }
-
 export default MoviePage
